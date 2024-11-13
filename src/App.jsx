@@ -18,17 +18,9 @@ const Search = lazy(() => import('./components/HomeScreen/Search'));
 
 
 const App = () => {
-  // const [loading, setLoading] = useState(false);
+
   const location = useLocation();
   const [showInitialScreen, setShowInitialScreen] = useState(true);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 2000);
-  //   return () => clearTimeout(timer);
-  // }, [location.pathname]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
