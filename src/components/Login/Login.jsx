@@ -91,7 +91,7 @@ const Login = () => {
             type="submit"
             className="bg-spotify-accent text-white outline-none font-semibold rounded-lg w-24 p-2 mt-6"
           >
-            Send Otp
+            Send OTP
           </button>}
         </form>
       </div>
