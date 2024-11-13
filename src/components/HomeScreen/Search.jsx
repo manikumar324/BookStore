@@ -63,7 +63,7 @@ const Search = () => {
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
           onChange={handleInputChange}
-          className="bg-white rounded-full pl-10 pr-4 py-2 w-full"
+          className="bg-white rounded-full pl-10 pr-4 py-2 w-full outline-none"
           required
           placeholder=" "
         />
@@ -102,12 +102,12 @@ const Search = () => {
         </div>
       </div>
 
-      <div className="mt-4 h-screen overflow-y-auto w-full">
+      <div className="mt-4 h-screen overflow-y-auto w-full scrollbar-hide">
         {loading && <p className="text-white">Loading...</p>}
         {error && <p className="text-white">Error fetching books!</p>}
         {filteredBooks.length > 0 ? (
           <div className="flex w-full justify-center">
-            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-10">
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[10px] lg:gap-10">
               {filteredBooks.map((book, index) => (
                 <li key={book.id || index} className="flex-shrink-0">
                   <img

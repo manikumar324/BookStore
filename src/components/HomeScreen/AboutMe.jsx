@@ -86,16 +86,16 @@ const AboutMe = () => {
 
   
   return (
-    <div className='flex flex-col bg-custom-dark h-screen overflow-y-auto items-start pb-5'>
+    <div className='flex flex-col bg-custom-dark min-h-screen overflow-y-auto items-start'>
       <Toaster/>
-      <div className='bg-gradient-to-r from-black to-white shadow-xl w-full h-[250px] flex items-start'>
+      <div className='bg-custom-dark shadow-xl w-full h-[250px] flex items-start'>
         <Link to="/">
           <Lottie animationData={hello} className='h-[250px] w-[150px]' />
         </Link>
         
         <TypeAnimation 
           sequence={[
-            `Book Bazaar Welcomes You`, 1000,
+            `Book Bazaar Welcomes You,`, 1000,
             `Book Bazaar Welcomes You, ${name.toUpperCase()}!`, 1000,
           ]}
           wrapper="span"
@@ -103,7 +103,7 @@ const AboutMe = () => {
           style={{ 
             fontSize: '1.8em',
             fontWeight: 'bold',
-            color: '#4A4A4A', 
+            color: '#28a745', 
             textShadow: '2px 2px 4px rgba(255, 255, 255, 0.6)',
             alignSelf: 'center',
             fontFamily: "monospace",
@@ -114,14 +114,14 @@ const AboutMe = () => {
         />
       </div>
 
-      <div className='mt-6 w-full px-6'>
+      <div className='w-full px-6'>
         <div className='bg-white p-2 rounded-lg shadow-lg flex items-center hover:shadow-xl transition-shadow duration-300 ' onClick={fetchOrders}>
           <IoLogoDropbox className='h-[35px] text-spotify-accent text-[40px]' />
           <h1 className='ml-4 text-2xl font-semibold text-gray-800'>Orders</h1>
         </div>
 
-        <hr className='my-4 border-t-2 border-gray-300' />
-
+        <hr className='my-2 border-t-2 border-gray-300' />
+        
         <div className='bg-white p-4 rounded-lg shadow-lg flex flex-col md:flex-row items-center hover:shadow-xl transition-shadow duration-300'>
           <div className='flex items-center w-full'>
             <FaLocationDot className='text-spotify-accent text-[30px]' />
@@ -148,7 +148,7 @@ const AboutMe = () => {
           }
         </div>
 
-        <hr className='my-4 border-t-2 border-gray-300' />
+        <hr className='my-2 border-t-2 border-gray-300' />
         
 
         <div className='flex align-bottom justify-center mt-6'>

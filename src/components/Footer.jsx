@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaCopyright } from '
 
 const Footer = () => {
   return (
-    <footer className="bg-custom-dark h-auto  text-white pt-6 py-8 pb-[100px] ">
+    <footer className="bg-custom-dark h-auto  text-white pt-6 py-8 pb-[80px] ">
       <div className="container mx-auto px-6 shadow-2xl">
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/3 mb-6">

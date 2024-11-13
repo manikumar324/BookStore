@@ -116,7 +116,7 @@ const Cart = () => {
 
     return (
         <>
-            <div className="cart-container min-h-[100vh] flex flex-col justify-center items-center overflow-y-auto mx-auto bg-custom-dark shadow-lg p-4">
+            <div className="cart-container min-h-screen flex flex-col justify-center items-center overflow-y-auto mx-auto bg-custom-dark shadow-lg p-4">
                 <Toaster />
                 <div className='flex justify-center items-center w-full mb-4'>
                     <h2 className="text-3xl font-bold text-[#1ED760]">Your Cart</h2>
