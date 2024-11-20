@@ -116,7 +116,7 @@ const Cart = () => {
 
     return (
         <>
-            <div className="cart-container min-h-screen flex flex-col justify-center items-start overflow-y-auto mx-auto bg-custom-dark shadow-lg p-4">
+            <div className="cart-container h-auto flex flex-col justify-center items-center overflow-y-auto mx-auto bg-custom-dark shadow-lg p-4">
                 <Toaster />
                 <div className='flex justify-center items-center w-full mb-4'>
                     <h2 className="text-3xl font-bold text-[#1ED760]">Your Cart</h2>
@@ -127,8 +127,8 @@ const Cart = () => {
                 
                 {cart.length === 0 ? (
                     <>
-                        <Lottie animationData={empty} className='h-[150px]' />
-                        <p className="text-center text-gray-400 font-bold">Your cart is empty.</p>
+                        <Lottie animationData={empty} className='h-[200px]' />
+                        <p className="text-center text-gray-400 font-bold">your cart is EMPTY.</p>
                         <button className='rounded-lg mt-3 p-2 animate-pulse font-bold bg-white text-spotify-accent' onClick={() => navigate("/")}>Shop Now</button>
                     </>
                 ) : (
