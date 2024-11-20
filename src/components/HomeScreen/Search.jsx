@@ -106,7 +106,7 @@ const Search = () => {
         {loading && <p className="text-white">Loading...</p>}
         {error && <p className="text-white">Error fetching books!</p>}
         {filteredBooks.length > 0 ? (
-          <div className="flex w-full justify-center">
+          <div>
             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[10px] lg:gap-10">
               {filteredBooks.map((book, index) => (
                 <li key={book.id || index} className="flex-shrink-0">
