@@ -9,6 +9,7 @@ import Orders from './components/HomeScreen/Orders';
 import NotFound from './components/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/Footer';
+import Loader from './components/Loader'; // Import Loader component
 
 const HomeScreen = lazy(() => import('./components/HomeScreen/HomeScreen'));
 const Login = lazy(() => import('./components/Login/Login'));
@@ -16,11 +17,10 @@ const OtpVerify = lazy(() => import('./components/Login/OtpVerify'));
 const Cart = lazy(() => import('./components/HomeScreen/Cart'));
 const Search = lazy(() => import('./components/HomeScreen/Search'));
 
-
 const App = () => {
-
   const location = useLocation();
   const [showInitialScreen, setShowInitialScreen] = useState(true);
+  const [loading, setLoading] = useState(false); // State to manage the loader
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,28 +30,70 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const shouldHideComponents = showInitialScreen || ['/login', '/otp'].includes(location.pathname) || location.pathname === '*';
+  const shouldHideComponents =
+    showInitialScreen ||
+    ['/login', '/otp'].includes(location.pathname) ||
+    location.pathname === '*';
+
+  // Function to handle navigation loading
+  const handleLoading = (isLoading) => {
+    setLoading(isLoading);
+  };
 
   return (
-    <div className='font-sans'>
-      {!shouldHideComponents && <Navbar />}
-      {showInitialScreen ? (
-        <InitialScreen />
+    <div className="font-sans">
+      {loading ? (
+        <Loader /> // Show loader while loading
       ) : (
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path='/login' element={<Login />} />
-            <Route path='/otp' element={<OtpVerify />} />
-            <Route path='/' element={<HomeScreen />} />
-            <Route path='/about' element={<ProtectedRoute><AboutMe /></ProtectedRoute>} />
-            <Route path='/orders' element={<ProtectedRoute><Orders /></ProtectedRoute>} />
-            <Route path='/search' element={<ProtectedRoute><Search /></ProtectedRoute>} />
-            <Route path='/cart' element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+        <>
+          {!shouldHideComponents && <Navbar onNavigate={handleLoading} />}
+          {showInitialScreen ? (
+            <InitialScreen />
+          ) : (
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/otp" element={<OtpVerify />} />
+                <Route path="/" element={<HomeScreen />} />
+                <Route
+                  path="/about"
+                  element={
+                    <ProtectedRoute>
+                      <AboutMe />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/orders"
+                  element={
+                    <ProtectedRoute>
+                      <Orders />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/search"
+                  element={
+                    <ProtectedRoute>
+                      <Search />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/cart"
+                  element={
+                    <ProtectedRoute>
+                      <Cart />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          )}
+          {!shouldHideComponents && <Footer />}
+        </>
       )}
-      {!shouldHideComponents && <Footer />}
     </div>
   );
 };

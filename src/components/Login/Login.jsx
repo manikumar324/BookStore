@@ -38,7 +38,8 @@ const Login = () => {
         const emailData = response.data.mail;
 
         setTimeout(()=>{
-          navigate("/otp", { state: { Otp: response.data.data, Email: emailData } });
+          //sending the Otp adn email to the other components , in this case sending to the OtpVerify component where this data can be access in the OtpVerify component using useLocation() hook.
+          navigate("/otp", { state: { Otp: response.data.data, Email: emailData } });  
       },2000)
     }
     } catch (e) {
