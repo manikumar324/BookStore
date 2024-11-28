@@ -14,7 +14,7 @@ export const BooksProvider = ({children}) => {
         const fetchBooks = async()=>{
             setLoading(true)
             try{
-                const response = await axios.get("https://bookbazaarserver.onrender.com/books")
+                const response = await axios.get("https://bookstoreserver-k47w.onrender.com/books")
                 setBooks(response.data)
             }
             catch (err){

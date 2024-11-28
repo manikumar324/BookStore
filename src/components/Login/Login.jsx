@@ -29,7 +29,7 @@ const Login = () => {
     
 
     try {
-      const response = await axios.post("https://bookbazaarserver.onrender.com/login", {name,email})
+      const response = await axios.post("https://bookstoreserver-k47w.onrender.com/login", {name,email})
       if (response.status === 200) {
         toast.success(response.data.message);
         setOtp(response.data.data);

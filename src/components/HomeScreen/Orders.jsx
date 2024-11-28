@@ -14,7 +14,7 @@ const Orders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.post('https://bookbazaarserver.onrender.com/orders', { email: userEmail });
+        const response = await axios.post('https://bookstoreserver-k47w.onrender.com/orders', { email: userEmail });
         setOrders(response.data.orders);
       } catch (error) {
         console.error("Error fetching orders:", error);

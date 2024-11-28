@@ -61,7 +61,7 @@ const OtpVerify = () => {
 
     try {
       // const otpToSubmit = Otp; // Use the OTP from location.state directly
-      const response = await axios.post("https://bookbazaarserver.onrender.com/validate-otp", {
+      const response = await axios.post("https://bookstoreserver-k47w.onrender.com/validate-otp", {
         enteredOtp : Otp, // Send the OTP retrieved from location.state
         Email, // Send the email for validation
       });
@@ -86,7 +86,7 @@ const OtpVerify = () => {
   const handleResendOtp = async () => {
     setReload(true)
     try {
-      const response = await axios.post("https://bookbazaarserver.onrender.com/resend-otp", {
+      const response = await axios.post("https://bookstoreserver-k47w.onrender.com/resend-otp", {
         email: Email,
       });
       if (response.data.success) {
