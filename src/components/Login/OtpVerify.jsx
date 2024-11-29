@@ -72,7 +72,7 @@ const OtpVerify = () => {
         // setIsLoading(false)
         setTimeout(()=>{
           navigate("/")
-      },2000)
+      },1000)
       } else {
         toast.error(response.data.message);
         

@@ -78,10 +78,10 @@ const AboutMe = () => {
     localStorage.removeItem("bookUSer")
     Cookie.remove("userToken")
     
-    toast("Logged Out")
+    toast.success("Logged Out")
     setTimeout(() => {
       navigate("/login")
-    }, 2000);
+    }, 1000);
   }
 
   
