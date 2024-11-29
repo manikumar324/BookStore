@@ -90,7 +90,7 @@ const Cart = () => {
 
     const makePaymentRequest = async (payload, retryCount = 0) => {
         try {
-            const response = await fetch("https://bookbazaarserver.onrender.com/payment", {
+            const response = await fetch("https://bookstoreserver-k47w.onrender.com/payment", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
