@@ -45,7 +45,7 @@ const OtpVerify = () => {
         setOtpDigits(Otp.split("")); // Auto-fill OTP in input
         setIsLoading(true)
       setTimeout(()=>{
-        handleSubmit();              // Call submit function automatically
+        handleSubmit();              // Calls submit function automatically
         setIsLoading(false)
       },1000)
     }
